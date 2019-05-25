@@ -1,7 +1,5 @@
 package com.imooc.part1;
 
-import java.util.Scanner;
-
 /**
  * java中如何使用数组
  */

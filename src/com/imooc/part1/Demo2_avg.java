@@ -13,7 +13,7 @@ public class Demo2_avg {
 //    double sum;
     System.out.println("sum"+sum);
 
-    double avg = 0;
+    double avg;
     Scanner input = new Scanner(System.in);
     for (int i = 1; i <= classNum; i++) {
       sum = 0;

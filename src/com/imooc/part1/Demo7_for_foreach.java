@@ -8,7 +8,7 @@ public class Demo7_for_foreach {
     Arrays.sort(scores);
     int index = 0;
     for (int score : scores) {
-      System.out.println("score["+index+"]="+score);
+      System.out.println("score[" + index + "]=" + score);
       index++;
     }
   }
