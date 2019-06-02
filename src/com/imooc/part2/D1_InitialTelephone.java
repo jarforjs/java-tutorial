@@ -1,5 +1,6 @@
 package com.imooc.part2;
-import com.imooc.part2.second.D1_Telephone_Construct_Static_Variable;
+
+import com.imooc.part2.secondPackage.D1_Telephone_Construct_Static_Variable;
 public class D1_InitialTelephone {
 
   public static void main(String[] args) {
