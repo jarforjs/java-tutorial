@@ -232,9 +232,13 @@ public | ✓ | ✓ | ✓ | ✓
 
 通常配合if来使用`if(animal instanceof Dog)`
 
+### UML
+Unified Modeling Language(UML):同一建模语言或标准建模语言，是一个支持模型化和软件系统开发的图形化语言，为软件开发的所有阶段提供模型化和可视化支持
 
-
-
+常用UML图
+1. 用例图（The Use Case Diagram）：能够以可视化的方式，表达系统如何满足所收集的业务规则，以及特定的用户需求等信息。
+2. 序列图（The Sequence Diagram）：用于按照交互发生的一系列顺序，显示对象之间的这些交互。
+3. 类图（The Class Diagram）：UML类图，业务逻辑和所有支持结构一同被用于定义全部的代码结构。（通常用于描述类与类之间的关系，类的属性功能）
 
 
 
