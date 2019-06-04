@@ -8,6 +8,6 @@ public class D8_Inherit_Dog extends D8_Inherit_Animal {
   }
 
   public void eat() {
-    System.out.println("年龄:" + age + ",狗喜欢吃骨头!");
+    System.out.println("小狗"+name+"，今年:" + age + "岁,喜欢吃骨头!");
   }
 }

@@ -5,6 +5,7 @@ public class D9_Object_toString extends D8_Inherit_Animal {
   public D9_Object_toString(int number) {
     super(number);
   }
+
   public static void main(String[] args){
     D9_Object_toString toString = new D9_Object_toString(1000);
     System.out.println(toString);
