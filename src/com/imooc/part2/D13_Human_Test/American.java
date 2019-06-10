@@ -1,4 +1,4 @@
-package com.imooc.part2.D12_Human_Test;
+package com.imooc.part2.D13_Human_Test;
 
 public class American extends Human {
   @Override
