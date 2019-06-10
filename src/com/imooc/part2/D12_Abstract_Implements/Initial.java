@@ -27,7 +27,6 @@ public class Initial {
 
     //直接使用接口
     new IPlayGame(){
-
       @Override
       public void paleGame() {
         System.out.println("安卓开发更多的会使用这种直接使用匿名内部类的方式实现接口");
