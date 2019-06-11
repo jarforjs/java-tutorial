@@ -1,17 +1,17 @@
 package com.imooc.part2.D14_Dada;
 
-public class Jeep extends RentSystem {
+public class Jeep extends Automobile {
 
-  public Jeep(String product, int hire, int number, int ton) {
-    setProduct(product);
-    this.setHire(hire);
-    this.setNumber(number);
+  public Jeep(String name, int price, int passengers, int ton) {
+    this.setName(name);
+    this.setPrice(price);
+    this.setPassengers(passengers);
     this.setTon(ton);
   }
 
   @Override
-  public String toString() {
-    return getProduct()+"\t"+getHire()+"元/天\t"+canMannedPeople(this.getNumber())+" "+canCargoGoods(this.getTon());
+  public String getCapacity() {
+    return "载人：" + this.getPassengers() + "人, 载货：" + this.getTon() + "吨";
   }
 
 }

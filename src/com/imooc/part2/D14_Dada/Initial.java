@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Initial {
   public static void main(String[] args) {
-    RentSystem[] automobiles = {
+    Automobile[] automobiles = {
         new Car("奥迪A4", 500, 4),
         new Car("马自达6", 400, 4),
         new Bus("金龙", 800, 20),
@@ -17,30 +17,15 @@ public class Initial {
     System.out.println("您是否要租车: 1是 0否");
     Scanner input = new Scanner(System.in);
 
-    switch (input.nextInt()){
-      case 1:
-        renderAutomobileList(automobiles);
-        break;
-      case 0:
-        break;
-        default:
+    if (input.nextInt() == 1){
+      System.out.printf("%n您可租车的类型及其价目表:%n");
+      System.out.println("序号\t汽车名称\t租金\t容量");
+      for (int i = 0, len = automobiles.length; i <= len; i++) {
+        System.out.printf("%d. \t%s\t\t%d元/天\t%s%n", i + 1, automobiles[i].name, automobiles[i].price, automobiles[i].getCapacity());
+      }
+
+      System.out.println("请输入你要租汽车的数量");
     }
   }
 
-  private static void renderAutomobileList(RentSystem[] automobiles){
-    System.out.printf("%n您可租车的类型及其价目表:%n");
-    System.out.println("序号\t汽车名称\t租金\t\t容量");
-    for (int i=1,len=automobiles.length;i<=len;i++){
-      System.out.println(i+". "+automobiles[i]);
-      System.out.printf("%d. \t%s\t\t%d元/天\t%s%n", i);
-    }
-
-    System.out.println("请输入你要租汽车的数量");
-
-    Scanner needCount = new Scanner(System.in);
-    for(int j=1;j<=needCount.nextInt();j++){
-      System.out.println("请输入第"+j+"辆车的序号:");
-
-    }
-  }
 }

@@ -1,15 +1,15 @@
 package com.imooc.part2.D14_Dada;
 
-public class Car extends RentSystem {
+public class Car extends Automobile {
 
-  public Car(String product, int hire, int number) {
-    setProduct(product);
-    this.setHire(hire);
-    this.setNumber(number);
+  public Car(String name, int price, int passengers) {
+    this.setName(name);
+    this.setPrice(price);
+    this.setPassengers(passengers);
   }
 
   @Override
-  public String toString() {
-    return getProduct()+"\t"+getHire()+"元/天\t"+canMannedPeople(this.getNumber());
+  public String getCapacity() {
+    return "载人：" + this.getPassengers() + "人";
   }
 }

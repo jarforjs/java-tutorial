@@ -1,15 +1,15 @@
 package com.imooc.part2.D14_Dada;
 
-public class Lorry extends RentSystem {
+public class Lorry extends Automobile {
 
-  public Lorry(String product, int hire, int ton) {
-    setProduct(product);
-    this.setHire(hire);
+  public Lorry(String name, int price, int ton) {
+    this.setName(name);
+    this.setPrice(price);
     this.setTon(ton);
   }
 
   @Override
-  public String toString() {
-    return getProduct()+"\t"+getHire()+"元/天\t"+canCargoGoods(this.getTon());
+  public String getCapacity() {
+    return "载货：" + this.getTon() + "吨";
   }
 }
