@@ -265,3 +265,48 @@ Unified Modeling Language(UML):同一建模语言或标准建模语言，是一�
 ### 达达租车系统
 - mysql版：http://www.imooc.com/article/20387
 - java中printf中用法详解：https://www.cnblogs.com/seakt/p/4478045.html
+
+### 异常
+Throwable：Error，Exception
+  1. Error：系统错误（它出现了，说明程序彻底挂了）
+     - VirtualMachineError（虚拟机错误）
+     - ThreadDeath（线程死锁）
+  2. Exception：编码、环境、用户操作输入出现问题
+     1. RuntimeException(非检查异常)主要指的是：
+        - NullPointException(空指针异常);
+        - ArrayIndexOutOfBoundsException(数组下标越界异常);
+        - ClassCastException(类型转换异常);
+        - ArithmeticException(算术异常);
+        - IllegalAccessException(安全权限异常);
+     2. CheckException(检查异常)：需要手动添加捕获和处理语句
+        - IOException（文件异常）
+        - SQLException（连接异常）
+
+### 抛出异常及自定义异常
+- throw：将产生的异常抛出（动作）
+- throws：声明将要抛出何种类型的异常，可以是多条异常，每个类型的异常中间用逗号隔开（声明）
+```
+public void 方法名(参数列表) throws 异常列表 {
+  //调用会抛出异常的方法或者：throw new Exception();
+}
+```
+![java中异常抛出](./assets/java中异常抛出.png 'java中异常抛出')
+> divide方法中申明了一个异常，当two为0是，抛出一个异常。
+
+> 可以处理：如果下面的compute方法调用了divide方法就要添加try catch语句去尝试捕获这个异常
+
+> 不能处理：或者像右侧一样添加throws声明来将异常抛出给更上一层调用者去处理
+
+### java当中的异常种类
+![java当中的异常种类](./assets/java当中的异常种类.jpg 'java当中的异常种类')
+
+### 自定义异常:必须继承java标准类库中意思相近的异常或者直接继承所有异常的基类（Exception）
+`class 自定义异常类 extends 异常类型{}`
+
+### 实际应用中的经验与总结
+1. 处理运行时异常时，采用优化代码用逻辑去合理规避同时辅助try-catch处理
+2. 在多重catch块后面，可以加一个catch（Exception）来处理可能会被遗漏的异常 
+3. 对于不确定的代码，也可以加上try-catch，处理潜在的异常 
+4. 尽量去处理异常，切记只是简单的调用printStackTrace（）去打印——比如业务回滚
+5. 具体如何处理异常，要根据不同的业务需求和异常类型去决定
+6. 尽量添加finally语句块去释放占用的资源
