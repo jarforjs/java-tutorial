@@ -310,3 +310,44 @@ public void 方法名(参数列表) throws 异常列表 {
 4. 尽量去处理异常，切记只是简单的调用printStackTrace（）去打印——比如业务回滚
 5. 具体如何处理异常，要根据不同的业务需求和异常类型去决定
 6. 尽量添加finally语句块去释放占用的资源
+
+### String
+`String s1 = "imooc";`
+`String s2 = new String("imooc");`
+- 对于多次出现的字符串常量，Java编译程序只创建一次，每次创建一个常量字符串的时候，其实是隐式调用了new String，String s2存放了字符串对象的引用
+- 一旦一个字符串在内存中创建了，则这个字符串将不可改变。
+- s1 = "欢迎来到：" + s1; 改变了字符串 s1 ，其实质是创建了新的字符串对象
+
+### String类常用方法
+1. int length() 返回当前字符串的长度
+2. int indexOf(int ch) 查找ch字符在该字符串中第一次出现的位置
+3. int indexOf(String str) 查找str子字符串在该字符串中第一次出现的位置
+4. int lastIndexOf(int ch) 查找ch字符在该字符串中最后一次出现的位置
+5. int lastIndexOf(String str) 查找str子字符串在该字符串中最后一次出现的位置
+6. String substring(int beginIndex) 获取从beginIndex位置开始到结束的子字符串
+7. String substring(int beginIndex, int endIndex) 获取从beginIndex位置开始到endIndex位置的子字符串
+8. String trim() 返回去除了前后空格的字符串
+9. boolean equals(Object obj) 将该字符串与制定对象比较，返回true或false
+10. String toLowerCase() 将字符串转换为小写
+11. String toUpperCase() 将字符串转换为大写
+12. char charAt(int index) 获取字符串中指定位置的字符
+13. String[] split(String regex, int limit) 将字符串分割为子字符串，返回字符串数组
+14. byte[] getBytes() 将该字符串转换为byte数组
+
+字节是计算机存储信息的基本单位，1个字节等于8位，gbk编码中1个汉字字符存储需要2个字节，1个英文字符存储需要 1 个字节。
+- 所以我们看到上面的程序运行结果中，每个汉字对应两个字节值，如“学”对应 “-47 -89” ，而英文字母 “J” 对应 “74” 。
+- 同时，我们还发现汉字对应的字节值为负数，原因在于每个字节是 8 位，最大值不能超过 127，而汉字转换为字节后超过 127，如果超过就会溢出，以负数的形式显示。
+
+Java采用unicode来表示字符，java中的一个char是2个字节，一个中文或英文字符的unicode编码都占2个字节，但如果采用其他编码方式，一个字符占用的字节数则各不相同。
+- 在 GB 2312 编码或 GBK 编码中，一个英文字母字符存储需要1个字节，一个汉子字符存储需要2个字节。
+- 在UTF-8编码中，一个英文字母字符存储需要1个字节，一个汉字字符储存需要3到4个字节。
+- 在UTF-16编码中，一个英文字母字符存储需要2个字节，一个汉字字符储存需要3到4个字节（Unicode扩展区的一些汉字存储需要4个字节）。
+- 在UTF-32编码中，世界上任何字符的存储都需要4个字节。
+
+### StringBuilder类常用方法
+- 频繁操作字符串时，会额外产生很多临时变量。使用StringBuilder和StringBuffer就可以避免这个问题。
+- 两者基本相似，不同之处，StringBuffer是线程安全的，而StringBuilder则没有实现线程安全功能，所以性能略高。因此一般情况下，如果需要创建一个内容可变的字符串对象，应优先考虑使用**StringBuilder**类。
+1. str.append("abc") 追加字符串 abc
+2. str.toString();转换为string对象
+3. str.insert(num,"abc")在字符串num位置(从左到右数num个字符后，添加)添加 abc 内容
+4. str.length()获取字符的长度
