@@ -394,10 +394,23 @@ boolean | Boolean
 3. 在泛型集合当中除了可以存入范型类型的对象实例还可以存入泛型的子类型的对象实例
 4. 泛型集合中限定类型不能使用基本数据类型（int,long,boolean）,如果一定要使用可以通过包装类限定允许存入的基本数据类型（Integer，Long，Boolean）
 
+### 遍历Set集只能使用foreach或者iterator，不能使用List接口的get方法，因为它是无序的
+- Set中元素无序且不可重复，称为集
+- Set中，添加某个对象，无论添加多少次，最终只会保留一个该对象（引用），并且保留的是第一个添加的那一个
+- Set中可以添加空对象：null
 
+### Map
+- Map接口提供了一种映射关系，其中的元素是键值对（key-value）的形式存储的，key、value可以是任何对象，能够实现根据key快速查找value。
+- 而这个键值对是以Entry类型的对象实例存在的（可以理解Entry类型的对象实例包括key和value两部分）
+- 在Map中key是不可以重复的，value值可以重复的
+- Map支持泛型，Map<K, V>
 
+#### HashMap类
+- HashMap是Map的一个重要实现类，也是最常用的，基于哈希表实现
+- HashMap中的Entry对象是无序排列的
+- key值和value值都可以为null，但是一个HashMap只能有一个key为null的映射（key值不能重复）
 
-
+### 我们在使用Set的contains方法时，它首先调用的是hashCode方法返回哈希码，如果哈希码相等再调用equals方法去判断是否相等时，才能认定这个hashSet包含某个元素
 
 
 

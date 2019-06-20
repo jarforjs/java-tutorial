@@ -130,6 +130,7 @@ public class ListTest {
     System.out.println("能否往List中添加一些奇怪的东西呢？");
     coursesToSelect.add("我不是课程，我只是一个无辜的字符串！！");
   }
+
   public static void main(String[] args) {
     ListTest lt = new ListTest();
     lt.testAdd();
