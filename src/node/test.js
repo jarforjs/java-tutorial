@@ -21,9 +21,9 @@ const method = (identity, asset) => {
 const actions1 = new Map([
   ['DISTRIBUTOR_design', () => goto('http://a')],
   ['DISTRIBUTOR_bill', () => goto('http://a')],
-  ['SUPPLIER_activity', () => goto('http://a')],
-  ['SUPPLIER_asset', () => goto('http://a')],
-  ['SUPPLIER_invoice', () => goto('http://a')],
+  ['SUPPLIER_activity', () => goto('http://b')],
+  ['SUPPLIER_asset', () => goto('http://b')],
+  ['SUPPLIER_invoice', () => goto('http://b')],
 ])
 
 const method1 = (identity, asset) => {
