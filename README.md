@@ -412,10 +412,33 @@ boolean | Boolean
 
 ### 我们在使用Set的contains方法时，它首先调用的是hashCode方法返回哈希码，如果哈希码相等再调用equals方法去判断是否相等时，才能认定这个hashSet包含某个元素
 
+### Collections.sort
+1. Comparable:默认比较规则
+    - Comparable接口------可比较的
+      - 实现该接口表示：这个类的实例可以比较大小，可以进行自然排序
+      - 定义了默认的比较规则
+      - 其实现类需实现compareTo()方法
+      - compareTo()方法返回正数表示大，负数表示小，0表示相等
+2. comparator:临时比较规则
+    - Comparator接口-----比较工具接口
+      - 用于定义**临时**比较规则，而不是默认比较规则
+      - 其实现类需要实现compare()方法
 
+    - Comparable和Comparator都是Java集合框架的成员
+    - Comparable需要实现CompareTo方法，comparator需要实现compare方法
+3. Collection接口，Map接口，Collections工具类，Comparable接口，Comparator接口
 
-
-
+### 简易扑克牌游戏
+1. 创建一副扑克牌
+    - 包括四种花色：黑桃、红心、梅花、方块
+    - 十三种点数：2-10、J、Q、K、A，不考虑大小王
+2. 创建两名玩家
+    - 玩家至少要有ID、姓名、手牌等属性、手牌为扑克牌的集合
+3. 洗牌
+4. 发票
+    - 将洗牌之后的扑克牌集合，从第一张开始，发给两名玩家，按照一人一张的方式，每人发两张
+5. 游戏
+    - 比较两名玩家手中扑克牌，规则为：去两人各自手中点数最大的牌进行比较，点数大的赢；若两人各自的点数最大的牌相等，则再按花色比较
 
 
 
