@@ -11,7 +11,7 @@ public class ClassDemo1 {
     //第二种表达方式--->已经知道该类的对象通过getClassF方法
     Class c2=foo1.getClass();
 
-    /**
+    /*
      * 官网c1,c2表示了Foo类的类类型（class type）
      * 万事万物皆对象
      * 类也是对象，是Class类的实例对象

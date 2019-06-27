@@ -1,15 +1,18 @@
-class ClassDemo2 
-{
-	public static void main(String[] args) 
+package com.imooc.reflect;
+
+class ClassDemo2 {
+	public static void main(String[] args)
 	{
-		Class c1 = int.class;//intµÄÀàÀàĞÍ
-		Class c2 = String.class;//StringÀàµÄÀàÀàĞÍ StringÀà×Ö½ÚÂë
-		Class c3=double.class;//doubleÊı¾İÀàĞÍµÄ×Ö½ÚÂë
-		Class c4=Double.class;//DoubleÀàµÄÀàÀàĞÍ×Ö½ÚÂë±íÊ¾·½Ê½
+		Class c1 = int.class;//intçš„ç±»ç±»å‹
+		Class c2 = String.class;//Stringç±»çš„ç±»ç±»å‹ Stringç±»å­—èŠ‚ç 
+		Class c3=double.class;//doubleæ•°æ®ç±»å‹çš„å­—èŠ‚ç 
+		Class c4=Double.class;//Doubleç±»çš„ç±»ç±»å‹å­—èŠ‚ç è¡¨ç¤ºæ–¹å¼
 		Class c5 =void.class;
 
 		System.out.println(c1.getName());
 		System.out.println(c2.getName());
+		//ä¸åŒ…å«åŒ…åçš„ç±»çš„åç§°
 		System.out.println(c2.getSimpleName());
+		System.out.println(c5.getName());
 	}
 }

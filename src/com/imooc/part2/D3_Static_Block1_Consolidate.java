@@ -2,7 +2,7 @@ package com.imooc.part2;
 
 public class D3_Static_Block1_Consolidate {
   String name;
-  char sex;
+  String sex;
   static int age;
 
   // 构造方法
@@ -13,7 +13,7 @@ public class D3_Static_Block1_Consolidate {
 
   // 初始化块
   {
-    sex = '男';
+    sex = "男";
     System.out.println("通过初始化代码块为变量sex赋值：" + sex);
   }
 

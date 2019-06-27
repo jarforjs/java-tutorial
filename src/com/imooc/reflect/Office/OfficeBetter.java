@@ -1,12 +1,13 @@
-class OfficeBetter 
-{
-	public static void main(String[] args) 
+package com.imooc.reflect.Office;
+
+class OfficeBetter {
+	public static void main(String[] args)
 	{
 		try
 		{
-			// 动态加载类，在运行时刻加载
+			// 鍔ㄦ�佸姞杞界被锛屽湪杩愯鏃跺埢鍔犺浇
 			Class c = Class.forName(args[0]);
-			// 通过类类型创建该类的对象
+			// 閫氳繃绫荤被鍨嬪垱寤鸿绫荤殑瀵硅薄
 			OfficeAble oa =(OfficeAble)c.newInstance();
 			oa.start();
 		}
