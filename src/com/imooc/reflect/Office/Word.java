@@ -1,5 +1,5 @@
-class Word{
-  public static void start(){
+class Word implements OfficeAble{
+  public void start(){
     System.out.println("word...start...");
   }
 }
