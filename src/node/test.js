@@ -66,8 +66,8 @@ const method3 = (identity, asset) => {
 
 
 const actions4 = () => {
-  const functionA = () => () => goto('http://a')
-  const functionB = () => () => goto('http://b')
+  const functionA = () => goto('http://a')
+  const functionB = () => goto('http://b')
   return new Map([
     [
       {identity:'DISTRIBUTOR', assets: ['design', 'bill'] }, functionA,
@@ -86,9 +86,9 @@ const method4 = (identity, asset) => {
 
 
 const actions5 = () => {
-  const functionA = () => () => goto('http://a')
-  const functionB = () => () => goto('http://b')
-  const functionC = () => () => {/* do anything*/}
+  const functionA = () => goto('http://a')
+  const functionB = () => goto('http://b')
+  const functionC = () => {/* do anything*/}
   return new Map([
     [/^DISTRIBUTOR_[1-4]$/, functionA],
     [/^DISTRIBUTOR_5$/, functionB],
