@@ -101,3 +101,35 @@ const method5 = (identity, asset) => {
     key.test(`${identity}_${asset}`))
   action5[0][1].call(this)
 }
+
+
+
+// identity: seller, purchase
+// assets: asset, invoice, guide, info, design, bill
+
+// seller: asset, invoice, guide, info
+// purchase: design, bill, guide, info
+
+const Seller = function (asset) {
+  ['asset', 'invoice', 'guide', 'info'].includes(asset)
+    ?
+    console.log('Seller home')
+    :
+    console.log('Purchase Guide home')
+};
+
+const Purchase = function (asset) {
+  ['design', 'bill', 'guide', 'info'].includes(asset)
+    ?
+    console.log('Purchase home')
+    :
+    console.log('Seller Guide home')
+};
+
+const goto1 = function (func, asset) {
+  return func(asset)
+};
+
+goto1(Purchase, 'asset');//seller guide home
+goto1(Seller, 'design');//purchase guide home
+goto1(Seller, 'invoice');//seller guide home

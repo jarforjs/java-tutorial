@@ -70,34 +70,3 @@ const calculateBonus2 = function (func, salary) {
 };
 
 calculateBonus2(A, 10000);
-
-
-// identity: seller, purchase
-// assets: asset, invoice, guide, info, design, bill
-
-// seller: asset, invoice, guide, info
-// purchase: design, bill, guide, info
-
-const Seller = function (asset) {
-  ['asset', 'invoice', 'guide', 'info'].includes(asset)
-    ?
-    console.log('Seller home')
-    :
-    console.log('Purchase Guide home')
-};
-
-const Purchase = function (asset) {
-  ['design', 'bill', 'guide', 'info'].includes(asset)
-    ?
-    console.log('Purchase home')
-    :
-    console.log('Seller Guide home')
-};
-
-const goto = function (func, asset) {
-  return func(asset)
-};
-
-goto(Purchase, 'asset');//seller guide home
-goto(Seller, 'design');//purchase guide home
-goto(Seller, 'invoice');//seller guide home

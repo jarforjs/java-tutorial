@@ -1,6 +1,6 @@
 function BookStrategy() {
   this.calcPrice = function (price) {
-    console.log("未打折 = " + price)
+    console.log("未打折： " + price)
   }
 }
 
@@ -18,7 +18,7 @@ function BookCalc8Strategy() {
 
 function BookCalc7Strategy() {
   this.calcPrice = function (price) {
-    console.log("原价是： " + price + "；打9折后：" + price * 0.7)
+    console.log("原价是： " + price + "；打7折后：" + price * 0.7)
   }
 }
 
@@ -38,7 +38,7 @@ function Client(price) {
   } else if (599 <= price) {
     priceCalc = new PriceCalc(new BookCalc7Strategy());
   } else {
-    priceCalc = new PriceCalc(new BookCalc9Strategy());
+    priceCalc = new PriceCalc(new BookStrategy());
   }
   priceCalc.getPrice(price)
 }
