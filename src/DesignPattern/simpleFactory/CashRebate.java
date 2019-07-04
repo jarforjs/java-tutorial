@@ -1,4 +1,4 @@
-package DesignPattern.¥1simpleFactory;
+package DesignPattern.simpleFactory;
 
 /**
  * 打折收费子类

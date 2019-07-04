@@ -1,4 +1,4 @@
-package DesignPattern.¥1simpleFactory;
+package DesignPattern.simpleFactory;
 
 public class init {
   public static double total = 0.0d;

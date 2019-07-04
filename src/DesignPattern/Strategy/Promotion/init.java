@@ -1,4 +1,4 @@
-package DesignPattern.¥2Strategy.Promotion;
+package DesignPattern.Strategy.Promotion;
 
 public class init {
   public static double total = 0.0d;

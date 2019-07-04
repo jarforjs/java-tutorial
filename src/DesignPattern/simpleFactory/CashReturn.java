@@ -1,4 +1,4 @@
-package DesignPattern.¥2Strategy.Promotion;
+package DesignPattern.simpleFactory;
 
 /**
  * 返利收费子类
@@ -16,8 +16,8 @@ public class CashReturn extends CashSuper {
   @Override
   public double acceptCash(double money) {
     double result = money;
-    if (money > moneyCondition) {
-      result = money - Math.floor(money / moneyCondition) * moneyReturn;
+    if(money>moneyCondition){
+      result=money-Math.floor(money/moneyCondition)*moneyReturn;
     }
     return result;
   }

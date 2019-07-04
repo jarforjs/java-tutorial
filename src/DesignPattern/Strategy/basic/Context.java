@@ -1,4 +1,4 @@
-package DesignPattern.¥2Strategy.basic;
+package DesignPattern.Strategy.basic;
 
 public class Context {
   Strategy strategy;

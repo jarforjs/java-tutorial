@@ -1,4 +1,4 @@
-package DesignPattern.¥1simpleFactory;
+package DesignPattern.simpleFactory;
 
 /**
  * 现金收费抽象类

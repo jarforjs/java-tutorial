@@ -1,4 +1,4 @@
-package DesignPattern.¥2Strategy.Promotion;
+package DesignPattern.Strategy.Promotion;
 
 /**
  * 现金收费抽象类

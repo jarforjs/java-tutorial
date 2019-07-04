@@ -1,4 +1,4 @@
-package DesignPattern.¥2Strategy.Promotion;
+package DesignPattern.Strategy.Promotion;
 
 //改造后
 public class CashContext {

@@ -1,4 +1,4 @@
-package DesignPattern.¥1simpleFactory;
+package DesignPattern.simpleFactory;
 
 public class CashFactory {
   public static CashSuper createCashAccept(String type){

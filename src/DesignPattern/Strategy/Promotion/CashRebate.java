@@ -1,4 +1,4 @@
-package DesignPattern.¥2Strategy.Promotion;
+package DesignPattern.Strategy.Promotion;
 
 /**
  * 打折收费子类

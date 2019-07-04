@@ -1,4 +1,4 @@
-package DesignPattern.¥2Strategy.Promotion;
+package DesignPattern.simpleFactory;
 
 /**
  * 正常收费子类
