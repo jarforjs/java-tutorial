@@ -22,7 +22,7 @@ function BookCalc7Strategy() {
   }
 }
 
-function PriceCalc(price) {
+function PriceCalcContext(price) {
   this.price = price;
   var strategy;
   if (199 <= price && price < 399) {
@@ -41,7 +41,7 @@ function PriceCalc(price) {
 }
 
 function Client(price) {
-  return new PriceCalc(price).getPrice()
+  return new PriceCalcContext(price).getPrice()
 }
 
 Client(897987);
