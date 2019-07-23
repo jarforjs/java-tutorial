@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body class="container" style="margin-top: 30px">
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        欢迎光临珠峰聊天室<br>
+        <button class="btn btn-success" onclick="join('chat')">进入chat房间</button>
+        <button class="btn btn-danger" onclick="join('study')">进入study房间</button>
+        <button class="btn btn-success" onclick="leave('chat')">离开chat房间</button>
+        <button class="btn btn-danger" onclick="leave('study')">离开study房间</button>
+        <span>当前房间:<span id="currentRoom">大厅</span></span>
+    </div>
+    <div class="panel-body">
+        <ul class="list-group" id="message"></ul>
+    </div>
+    <div class="panel-footer">
+        <input onkeydown="enter(event)" type="text" class="form-control" id="inputMsg"><br>
+        <button class="btn btn-primary" onclick="talk()">发言</button>
+    </div>
+</div>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    //当加载完成后执行回调
+    window.onload=function () {
+        var rooms=[];
+        //连接websocket服务器
+        //var socket=io.connect('ws://localhost:9090/');
+        var socket=io.connect('/');
+        socket.on('connect',function () {
+            console.log('成功连接');
+            //socket.send('服务器,你好');
+            socket.emit('message','服务器,你好')
+        });
+
+        //监听服务器发过来的消息
+        socket.on('disconnect',function () {
+            console.log('断开连接');
+        });
+        socket.on('message',function (msg) {
+            //console.log(msg);
+            var li=document.createElement('li');
+            li.className='list-group-item';
+            li.innerHTML=msg;
+            //添加到消息列表里面去
+            document.querySelector('#message').appendChild(li);
+        });
+
+
+        //当按下键的时候,判断是否是回车,是回车则相当于直接发言
+        window.enter=function (event) {
+            var key=event.which||event.keycode;
+            if(key==13){
+                window.talk();
+            }
+        }
+
+        //发言
+        window.talk=function () {
+            var msg=document.querySelector('#inputMsg').value;
+            //向服务器发送类型为message的消息
+            socket.emit('message',msg);
+            document.querySelector('#inputMsg').value='';
+        }
+
+        //加入房间
+        window.join=function (room) {
+            //向后台发射join事件,room是参数
+            socket.emit('join',room);
+            var index=rooms.indexOf(room);
+            if(index ==-1){
+                rooms.push(room)
+            }
+            document.querySelector('#currentRoom').innerHTML=rooms.join(',')?rooms.join(','):'大厅';
+        };
+
+
+        //离开房间
+        window.leave=function (room) {
+            socket.emit('leave',room);//向服务器端发射离开房间的消息
+            var index=rooms.indexOf(room);
+            if(index !=-1){
+                rooms.splice(index,1)
+            }
+            document.querySelector('#currentRoom').innerHTML='大厅';
+        }
+    }
+</script>
+</html>

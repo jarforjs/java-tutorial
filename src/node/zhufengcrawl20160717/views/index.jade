@@ -1,0 +1,19 @@
+doctype html
+html
+    head
+        link(rel="stylesheet",href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css")
+        style.
+            body{margin-top: 50px}
+            .active{color:white}
+    body
+        .container
+            .row
+                .col-md-4
+                    ul.list-group
+                        each category in categories
+                            li.list-group-item
+                            a(href="/#{category._id}")=category.name
+                .col-md-8
+                    ul.list-group
+                        each movie in movies
+                            li.list-group-item
