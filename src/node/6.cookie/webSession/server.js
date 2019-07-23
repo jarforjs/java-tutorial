@@ -3,11 +3,10 @@ var app=express();
 var bodyParser=require('body-parser');
 var cookieParser=require('cookie-parser');
 var session=require('express-session');
-console.log(session);
 app.set('view engine','html');
 var system={
     username:'zfpx',
-    password:123
+    password:'123'
 }
 app.set('views',__dirname);
 //为特定的后缀模板指定渲染的方法
@@ -36,7 +35,7 @@ app.get('/login',function (req, res) {
 
 app.post('/login',function (req, res) {
     var user=req.body;
-    if(user.username==system.username&&user.password==system.password){
+    if(user.username===system.username&&user.password===system.password){
         //res.cookie('username',user.username);
         req.session.username=user.username;
         res.redirect('/user');
@@ -50,6 +49,6 @@ app.get('/user',function (req, res) {
 
 })
 
-app.listen(80,function () {
+app.listen(8001,function () {
     console.log('ok');
 })

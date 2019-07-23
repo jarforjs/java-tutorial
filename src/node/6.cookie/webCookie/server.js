@@ -5,7 +5,7 @@ var cookieParser=require('cookie-parser');
 app.set('view engine','html');
 var system={
     username:'zfpx',
-    password:123
+    password:'123'
 }
 app.set('views',__dirname);
 //为特定的后缀模板指定渲染的方法
@@ -16,7 +16,8 @@ app.use(bodyParser.urlencoded({extended:true}));
 * 1.先访问首页,点击链接跳转到登陆页
 * 2.在登陆页填写用户名和密码,然后提交表单
 * 3.在服务器端验证用户名和密码是否正确,如果正确则写入cookie
-* 4.写入之后再跳到用户主界面显示cookie里的用户名*/
+* 4.写入之后再跳到用户主界面显示cookie里的用户名
+*/
 app.get('/',function (req, res) {
     res.render('home',{title:'home'})
 })
@@ -28,7 +29,8 @@ app.get('/login',function (req, res) {
 
 app.post('/login',function (req, res) {
     var user=req.body;
-    if(user.username==system.username&&user.password==system.password){
+    console.log(user)
+    if(user.username===system.username&&user.password===system.password){
         res.cookie('username',user.username);
         res.redirect('/user');
     }else{
@@ -41,6 +43,6 @@ app.get('/user',function (req, res) {
 
 })
 
-app.listen(80,function () {
+app.listen(8001,function () {
     console.log('ok');
 })

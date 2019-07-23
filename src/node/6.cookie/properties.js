@@ -1,5 +1,5 @@
 var document = {
-
+    name:'zfpx'
 }
 Object.defineProperty(document,'cookies',{
     value:'zfpx',
@@ -8,8 +8,8 @@ Object.defineProperty(document,'cookies',{
 
     writable:false //不可修改值*/
 })
-Object.freeze(document);
-//Object.seal(document);
+Object.freeze(document);//冻结
+// Object.seal(document);//封存
 
 console.log(document);
 document.cookies = 'zfpx2';

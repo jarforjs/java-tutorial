@@ -13,30 +13,21 @@ var SESSION_KEY='session.key';
 app.get('/hair',function (req, res) {
     var cookies=req.cookies;
     var sessionId=cookies[SESSION_KEY];
-    if(sessionId){
-        // var balance=sessions[sessionId];
-        // balance-=10;
-        // sessions[sessionId]=balance;
-        var sessionObj=JSON.parse(fs.readFileSync('./session.json','utf8'));
-        var balance=sessionObj[sessionId];
-        if(balance){
-            sessionObj[sessionId]-=10;
-            //sessions[sessionId]-=10;
-            fs.writeFileSync('./session.json',JSON.stringify(sessionObj));
-            res.send('欢迎再次光临,您还'+sessionObj[sessionId]+'剩元');
-        }else{
-            generate();
-        }
+    var sessionObj=JSON.parse(fs.readFileSync('./session.json','utf8'));
+    var balance=sessionObj[sessionId];
+
+    if(sessionId && balance){
+        sessionObj[sessionId]-=10;
+        fs.writeFileSync('./session.json',JSON.stringify(sessionObj));
+        res.send('欢迎再次光临,您还'+sessionObj[sessionId]+'剩元');
     }else{
         generate();
     }
-
 
     function generate() {
         var sessionObj=JSON.parse(fs.readFileSync('./session.json','utf8'));
         var sessionId=Date.now()+'';//先生成一个卡号
         sessionObj[sessionId]=100;//在服务器端记录此卡号对应的余额
-        //res.cookie(SESSION_KEY,sessionId);
         fs.writeFileSync('./session.json',JSON.stringify(sessionObj));
         //把此cookie发送给客户端
         res.cookie(SESSION_KEY,sessionId);
@@ -47,6 +38,6 @@ app.get('/hair',function (req, res) {
 })
 
 
-app.listen(80,function () {
+app.listen(8001,function () {
     console.log('ok');
 })

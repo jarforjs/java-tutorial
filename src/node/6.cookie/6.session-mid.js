@@ -4,6 +4,7 @@ var app=express();
 //注意先后顺序
 var cookieParse=require('cookie-parser');
 var session=require('express-session');
+app.use(cookieParse());
 
 //使用session中间件之后会在req上加一个session属性:req.session,就是属于此客户端的数据
 app.use(session({
@@ -14,6 +15,7 @@ app.use(session({
 }));
 
 app.get('/visit',function (req, res) {
+    console.log(req.session, 'session')
     var count=req.session.count;
     if(count){
         req.session.count+=1;
@@ -25,6 +27,6 @@ app.get('/visit',function (req, res) {
 })
 
 
-app.listen(80,function () {
+app.listen(8001,function () {
     console.log('ok');
 })
