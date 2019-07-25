@@ -1,4 +1,4 @@
-import { Button, message } from 'antd';
+import { Button } from 'antd';
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import Code from '../components/Code';
 

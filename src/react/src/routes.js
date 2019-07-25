@@ -11,6 +11,7 @@ import RerenderButton from './routes/rerenderButton';
 import UseCallback from './routes/useCallback';
 import ReactMemo from './routes/ReactMemo';
 import UseRef from './routes/useRef';
+import QueryUser from './routes/queryUser';
 
 const Routes = () => (
   <div>
@@ -26,6 +27,7 @@ const Routes = () => (
     <Route path="/useCallback" component={UseCallback}/>
     <Route path="/ReactMemo" component={ReactMemo}/>
     <Route path="/useRef" component={UseRef}/>
+    <Route path="/queryUser" component={QueryUser}/>
   </div>
 );
 

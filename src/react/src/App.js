@@ -22,6 +22,7 @@ function App() {
             <Link to='useCallback'>useCallback</Link>
             <Link to='ReactMemo'>ReactMemo</Link>
             <Link to='useRef'>useRef</Link>
+            <Link to='queryUser'>queryUser</Link>
           </div>
           <Routes/>
         </div>

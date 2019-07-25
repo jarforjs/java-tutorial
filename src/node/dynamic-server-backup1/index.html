@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    thead {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body class="container">
+<div class="alert alert-warning text-center" id="alert" role="alert"></div>
+<div class="row">
+  <div class="form-group">
+    <label class="col-xs-2" for="keyword">过滤条件</label>
+    <div class="col-xs-4">
+      <input class="form-control" id="keyword" onchange="entry()" type="text">
+    </div>
+    <div class="col-xs-2">
+      <select class="form-control" id="orderBy" name="orderBy" onchange="entry()">
+        <option value="id">ID</option>
+        <option value="name">名称</option>
+      </select>
+    </div>
+    <div class="col-xs-2">
+      <select class="form-control" id="order" name="order" onchange="entry()">
+        <option value="asc">升序</option>
+        <option value="desc">降序</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" onclick="entry()">搜索</button>
+  </div>
+
+</div>
+
+<div class="panel panel-default" style="text-align: center;margin: 0 auto">
+  <div class="panel-heading">
+    <button class="btn btn-primary btn-lg" onclick="add()">增加用户</button>
+  </div>
+  <div class="panel-body">
+    <table class="table table-responsive table-hover">
+      <thead>
+      <tr>
+        <td>ID</td>
+        <td>用户名</td>
+        <td>操作</td>
+      </tr>
+      </thead>
+      <tbody id="userList">
+
+      </tbody>
+    </table>
+  </div>
+  <div class="panel-footer">
+    <nav>
+      <ul class="pagination" id="pager"></ul>
+      <div class="form-group">
+        <label class="col-xs-2" for="pageNum">跳到</label>
+        <div class="col-xs-2">
+          <input class="form-control" id="pageNum" name="pageNum" onkeyup="entry()" type="text">
+        </div>
+        <label class="col-xs-2" for="pageSize">每页条数</label>
+        <div class="col-xs-2">
+          <select class="form-control" id="pageSize" name="pageSize" onchange="entry()">
+            <option value="2">2</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<div class="modal fade" id="userModal">
+  <div class="modal-dialog">
+    <form class="form-horizontal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
+              aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">增加用户</h4>
+        </div>
+        <div class="modal-body">
+          <input id="userId" type="hidden">
+          <div class="form-group">
+            <label class="control-label col-xs-2" for="name">用户名</label>
+            <div class="col-xs-10">
+              <input class="form-control" id="name" name="name" type="text">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+
+          <button class="btn btn-default" data-dismiss="modal" type="button">取消</button>
+          <button class="btn btn-primary" onclick="save()" type="button">保存</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </form>
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="index.js"></script>
+</html>
