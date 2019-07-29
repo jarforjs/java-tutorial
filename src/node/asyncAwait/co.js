@@ -18,7 +18,7 @@ function co(gen) {
   });
 }
 
-// 接着，co 将 Generator 函数的内部指针对象的 next 方法，包装成 onFulefilled 函数。
+// 接着，co 将 Generator 函数的内部指针对象的 next 方法，包装成 onFulfilled 函数。
 // 这主要是为了能够捕捉抛出的错误。
 function co(gen) {
   var ctx = this;
@@ -37,29 +37,37 @@ function co(gen) {
       }
       next(ret);
     }
+
+    function onRejected(err) {
+      var ret;
+      try {
+        ret = gen.throw(err);
+      } catch (e) {
+        return reject(e);
+      }
+      next(ret);
+    }
+
+    // 最后，就是关键的 next 函数，它会反复调用自身。
+    function next(ret) {
+      if (ret.done) return resolve(ret.value);
+      var value = toPromise.call(ctx, ret.value);
+      if (value && isPromise(value)) return value.then(onFulfilled, onRejected);
+      return onRejected(new TypeError('You may only yield a function, promise, generator, array, or object, but the following object was passed: "' + String(ret.value) + '"'));
+    }
+    // 上面代码中，next 函数的内部代码，一共只有四行命令。
+
+    /*
+    第一行，检查当前是否为 Generator 函数的最后一步，如果是就返回。
+
+    第二行，确保每一步的返回值，是 Promise 对象。
+
+    第三行，使用 then 方法，为返回值加上回调函数，然后通过 onFulfilled 函数再次调用 next 函数。
+
+    第四行，在参数不符合要求的情况下（参数非 Thunk 函数和 Promise 对象），将 Promise 对象的状态改为 rejected，从而终止执行。
+     */
   });
 }
-
-// 最后，就是关键的 next 函数，它会反复调用自身。
-function next(ret) {
-  if (ret.done) return resolve(ret.value);
-  var value = toPromise.call(ctx, ret.value);
-  if (value && isPromise(value)) return value.then(onFulfilled, onRejected);
-  return onRejected(new TypeError('You may only yield a function, promise, generator, array, or object, but the following object was passed: "' + String(ret.value) + '"'));
-}
-
-
-// 上面代码中，next 函数的内部代码，一共只有四行命令。
-
-/*
-第一行，检查当前是否为 Generator 函数的最后一步，如果是就返回。
-
-第二行，确保每一步的返回值，是 Promise 对象。
-
-第三行，使用 then 方法，为返回值加上回调函数，然后通过 onFulfilled 函数再次调用 next 函数。
-
-第四行，在参数不符合要求的情况下（参数非 Thunk 函数和 Promise 对象），将 Promise 对象的状态改为 rejected，从而终止执行。
- */
 
 // 并发的异步操作
 // co 支持并发的异步操作，即允许某些操作同时进行，等到它们全部完成，才进行下一步。

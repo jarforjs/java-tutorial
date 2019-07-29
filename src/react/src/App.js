@@ -23,6 +23,7 @@ function App() {
             <Link to='ReactMemo'>ReactMemo</Link>
             <Link to='useRef'>useRef</Link>
             <Link to='queryUser'>queryUser</Link>
+            <Link to='mouseTracker'>mouseTracker</Link>
           </div>
           <Routes/>
         </div>

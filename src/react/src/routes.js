@@ -12,6 +12,7 @@ import UseCallback from './routes/useCallback';
 import ReactMemo from './routes/ReactMemo';
 import UseRef from './routes/useRef';
 import QueryUser from './routes/queryUser';
+import MouseTracker from './routes/mouseTracker';
 
 const Routes = () => (
   <div>
@@ -28,6 +29,7 @@ const Routes = () => (
     <Route path="/ReactMemo" component={ReactMemo}/>
     <Route path="/useRef" component={UseRef}/>
     <Route path="/queryUser" component={QueryUser}/>
+    <Route path="/mouseTracker" component={MouseTracker}/>
   </div>
 );
 
