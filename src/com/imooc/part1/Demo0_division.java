@@ -10,3 +10,4 @@ public class Demo0_division {
     System.out.println("(11+3*8)/4.0%3=" + (11 + 3 * 8) / 4.0 % 3);
   }
 }
+//Error:Resources for 'java' production: java.lang.OutOfMemoryError: GC overhead limit exceeded
